@@ -16,7 +16,7 @@ The main screen should:
 
 - Display a list of the cocktails in an alphabetical order.
 - Each of the items in the list should display the cocktail name and the cocktail's short description
-- Provide an UI that will toggle between 3 filter states: all cocktails, alcoholic cocktails and non-alcoholic cocktails. Depending on which filter is selected, the appropriate cocktails should be displayed and the list should be updated. The default filter state should be all cocktails.
+- Provide a UI that will toggle between 3 filter states: all cocktails, alcoholic cocktails and non-alcoholic cocktails. Depending on which filter is selected, the appropriate cocktails should be displayed and the list should be updated. The default filter state should be all cocktails.
 - Include a navigation title where the text depends on the state of the filter.
 - Provide behavior where tapping on any of the cocktails in the list should present the Details Screen
 
