@@ -56,7 +56,7 @@ Any changes you make to the code should be committed into the cloned local repos
 The project is set to have minimum deployment target iOS 13.2, this is intentional because our flagship app uses the same minimum deployment target, so please do not change it. The project is set only for the iPhone device to limit the scope.
 
 There are two main folders (groups) which are important to notice. `CocktailsAPI` and `CocktailBook`. The CocktailBook is the folder where you will do all the development in, the actual app. Additionally the CocktailBook folder contains `Assets.xcassets` that is pre-populated with cocktails images.
-The CoctailsAPI is a collection of premade code to emulate an actual web API, a source for the list of cocktails.
+The CocktailsAPI is a collection of premade code to emulate an actual web API, a source for the list of cocktails.
 
 When running the app initially you should be able to see a simple single screen app with some scrollable text (JSON) which is provided by the CocktailsAPI. 
 The API provides 2 ways of obtaining the cocktails `Data`, a function with a completion handler and a Combine publisher computed property. They both achieve the same goal, so only one should be used. Which one is used is not important, it is there to provide a choice.
@@ -70,7 +70,7 @@ protocol CocktailsAPI: AnyObject {
 ```
 > the starter code uses the `fetchCocktails` inside the `MainScreenViewController`
 
-To initialize the CoctailsAPI object, you must construct it using the fake / simulated implementation like so:
+To initialize the CocktailsAPI object, you must construct it using the fake / simulated implementation like so:
 
 ```swift
 let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
@@ -133,7 +133,7 @@ let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI(withFailure: .count(3))
 ```
 By initializing the object using `withFailure: .count(3)`, all the calls to the API will fail 3 times before succeeding. The only error that the API can fail with is `CocktailsAPIError.unavailable`. When the error occurs make sure to appropriately update the UI and inform the user, with an option to somehow retry to fetch the list of cocktails.
 
-**Extract the CocktailsAPI (contents of CoctailsAPI folder/group) into a separate swift package**. The new package should still belong to the same repository as our app. Keep in mind that some things need to be changed in the CocktailsAPI files, not the behavior itself. The new package should be utilized by the app as a local swift package.
+**Extract the CocktailsAPI (contents of CocktailsAPI folder/group) into a separate swift package**. The new package should still belong to the same repository as our app. Keep in mind that some things need to be changed in the CocktailsAPI files, not the behavior itself. The new package should be utilized by the app as a local swift package.
 
 **Free to add additional features/design**. There is no clear goal for this task, it is a way to enrich the app by any means you think are interesting. Sky is the limit :)
 
