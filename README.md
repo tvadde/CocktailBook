@@ -14,10 +14,10 @@ The end goal is to construct an app which will display a list of cocktails provi
 
 The main screen should:
 
-- Display a list of the cocktails in an alphabetical order.
+- Display a list of the cocktails in an alphabetical order
 - Each of the items in the list should display the cocktail name and the cocktail's short description
-- Provide a UI that will toggle between 3 filter states: all cocktails, alcoholic cocktails and non-alcoholic cocktails. Depending on which filter is selected, the appropriate cocktails should be displayed and the list should be updated. The default filter state should be all cocktails.
-- Include a navigation title where the text depends on the state of the filter.
+- Provide a UI that will toggle between 3 filter states: all cocktails, alcoholic cocktails and non-alcoholic cocktails. Depending on which filter is selected, the appropriate cocktails should be displayed and the list should be updated. The default filter state should be all cocktails
+- Include a navigation title where the text depends on the state of the filter
 - Provide behavior where tapping on any of the cocktails in the list should present the Details Screen
 
 ### Details Screen
@@ -27,10 +27,10 @@ The details screen describes a specific cocktail and should:
 - Display a navigation title where the text is the selected cocktail
 - Provide a back button to be able to navigate back to the main screen
 - Provide an icon and text describing the preparation time of the cocktail
-- Display an image of the cocktail. The images provided are of varying sizes, please make sure that the size and aspect ratio of the displayed image is the same for each cocktail.
+- Display an image of the cocktail. The images provided are of varying sizes, please make sure that the size and aspect ratio of the displayed image is the same for each cocktail
 - Provide text where the contents is the cocktail's long description
-- Display a list of ingredients (icon and text) that are required for making the cocktail.
-- Provide an icon toggle button (see the top right corner of the screen in the mocks) which can set the cocktail as "Favorite" or toggle it off for a cocktail that is already "Favorite". In the mocks the icon is represented by a heart icon, when the button is toggled off, the icon should be "empty" and when it is toggled on the icon should be "filled".
+- Display a list of ingredients (icon and text) that are required for making the cocktail
+- Provide an icon toggle button (see the top right corner of the screen in the mocks) which can set the cocktail as "Favorite" or toggle it off for a cocktail that is already "Favorite". In the mocks the icon is represented by a heart icon, when the button is toggled off, the icon should be "empty" and when it is toggled on the icon should be "filled"
 
 <p align="center">
     <img src="MDAssets/main-screen-with-favorites.png" width="440" max-width="90%" alt="Main screen with favorites" />
@@ -40,8 +40,8 @@ The details screen describes a specific cocktail and should:
 
 When some of the cocktails are selected as favorites, the main screen should:
 
-- Always display the favorite cocktails at the beginning in the list (pinned) respecting the filter state (non alcoholic favorite cocktails should still not be displayed in when the alcoholic cocktails filter is active). The favorite and non favorite section of the list should still maintain relative alphabetical order.
-- Each of the items in the list that are favorite, should have a different color for the cocktail name and display the favorite "filled heart icon" in the top right corner of the item UI, with the same color as the cocktail name.
+- Always display the favorite cocktails at the beginning in the list (pinned) respecting the filter state (non alcoholic favorite cocktails should still not be displayed in when the alcoholic cocktails filter is active). The favorite and non favorite section of the list should still maintain relative alphabetical order
+- Each of the items in the list that are favorite, should have a different color for the cocktail name and display the favorite "filled heart icon" in the top right corner of the item UI, with the same color as the cocktail name
 
 ### Starter Project Setup & Cocktails API
 
@@ -111,14 +111,14 @@ _An important thing to note is that the API is very slow_, so keep that in mind 
 
 ### Design and Implementation Considerations
 
-- The choice of Apple Frameworks is not restricted. You can use either UIKit or SwiftUI, usage of frameworks like Combine is optional but not required.
-- Feel free to use whatever app architecture you feel most comfortable with (MVC, MVVM, MVVM-C, Clean Swift, etc.), however, you should be able to justify the chosen architecture when asked, explaining all the pros and cons, as well as why you have decided to use that particular architecture. 
-- The mocks are there to provide guidance, but it is not required to implement a pixel perfect representation of them. As long as the requirements are met the choice of design is very open.
-- Icons are not provided in the assets, so use appropriate SF Symbols.
-- The app should have a proper UI in both light and dark mode.
-- While good looking design is nice, it is not the main criteria by which the app is assessed. Clean, readable and maintainable code is more important.
-- Use of third party code is not needed to complete either the required or optional tasks, however there is no restrictions of using any. There should be a very good reason to use third party code over the APIs provided by iOS.
-- Try and adhere to Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) as much as possible.
+- The choice of Apple Frameworks is not restricted. You can use either UIKit or SwiftUI, usage of frameworks like Combine is optional but not required
+- Feel free to use whatever app architecture you feel most comfortable with (MVC, MVVM, MVVM-C, Clean Swift, etc.), however, you should be able to justify the chosen architecture when asked, explaining all the pros and cons, as well as why you have decided to use that particular architecture 
+- The mocks are there to provide guidance, but it is not required to implement a pixel perfect representation of them. As long as the requirements are met the choice of design is very open
+- Icons are not provided in the assets, so use appropriate SF Symbols
+- The app should have a proper UI in both light and dark mode
+- While good looking design is nice, it is not the main criteria by which the app is assessed. Clean, readable and maintainable code is more important
+- Use of third party code is not needed to complete either the required or optional tasks, however there is no restrictions of using any. There should be a very good reason to use third party code over the APIs provided by iOS
+- Try and adhere to Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) as much as possible
 
 ## Optional (Bonus) Tasks
 
