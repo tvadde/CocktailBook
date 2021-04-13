@@ -107,7 +107,7 @@ All the cocktail json objects have the same properties and most of them are self
 
 The `CocktailAPIError` is not important for developing the required tasks, it is there only if you choose to complete one of the optional tasks (handling errors). 
 
-_An important thing to note is that the API is very slow_, so keep that in mind then designing / implementing the app.
+_An important thing to note is that the API is very slow_, so keep that in mind when designing / implementing the app.
 
 ### Design and Implementation Considerations
 
@@ -117,7 +117,7 @@ _An important thing to note is that the API is very slow_, so keep that in mind 
 - Icons are not provided in the assets, so use appropriate SF Symbols
 - The app should have a proper UI in both light and dark mode
 - While good looking design is nice, it is not the main criteria by which the app is assessed. Clean, readable and maintainable code is more important
-- Use of third party code is not needed to complete either the required or optional tasks, however there is no restrictions of using any. There should be a very good reason to use third party code over the APIs provided by iOS
+- Use of third party code is not needed to complete either the required or optional tasks, however there are no restrictions of using any. There should be a very good reason to use third party code over the APIs provided by iOS
 - Try and adhere to Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) as much as possible
 
 ## Optional (Bonus) Tasks
