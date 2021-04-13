@@ -2,7 +2,7 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
-    private let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI(withFailure: .count(3))
+    private let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
