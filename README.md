@@ -1,8 +1,8 @@
-# Cocktail Book App Assignment
+# 🍹 Cocktail Book App Assignment 📱
 
 The contents of this repository consists of starter project as well as this readme file containing instructions. The main goal is to expand and/or refactor the starter project to develop the Cocktails Book app. This assignment consists of required tasks and optional (bonus) tasks. After finishing the assignment, the resulting project should be compressed into a `zip` archive and sent back to the recruiter.
 
-## Required tasks
+## 🥇 Required tasks
 
 The end goal is to construct an app which will display a list of cocktails provided by the `CocktailsAPI` in the app's Main Screen and details for each of the cocktails in a Details Screen, which is shown whenever one of the cocktails is selected. Further description about the `CocktailsAPI`  is provided later. Please see the mocks below:
 
@@ -120,7 +120,7 @@ _An important thing to note is that the API is very slow_, so keep that in mind 
 - Use of third party code is not needed to complete either the required or optional tasks, however there are no restrictions of using any. There should be a very good reason to use third party code over the APIs provided by iOS
 - Try and adhere to Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) as much as possible
 
-## Optional (Bonus) Tasks
+## ❓ Optional (Bonus) Tasks
 
 **Provide unit tests**. Make sure the code is "testable" and provide unit tests for the business logic.
 
@@ -137,6 +137,6 @@ By initializing the object using `withFailure: .count(3)`, all the calls to the 
 
 **Free to add additional features/design**. There is no clear goal for this task, it is a way to enrich the app by any means you think are interesting. Sky is the limit :)
 
-## Disclaimer
+## 🤓 Disclaimer
 
 The texts and images are taken from multiple sources. They should not be shared with others or used in commercial products, they are only used to serve the assignment as temporary assets, nothing more.
