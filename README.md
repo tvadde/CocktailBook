@@ -40,7 +40,7 @@ The details screen describes a specific cocktail and should:
 
 When some of the cocktails are selected as favorites, the main screen should:
 
-- Always display the favorite cocktails at the beginning in the list (pinned) respecting the filter state (non-alcoholic favorite cocktails should still not be displayed in when the alcoholic cocktails filter is active). The favorite and non favorite section of the list should still maintain relative alphabetical order
+- Always display the favorite cocktails at the beginning in the list (pinned) respecting the filter state (non-alcoholic favorite cocktails should still not be displayed in when the alcoholic cocktails filter is active). The favorite and non-favorite section of the list should still maintain relative alphabetical order
 - Each of the items in the list that are favorite, should have a different color for the cocktail name and display the favorite "filled heart icon" in the top right corner of the item UI, with the same color as the cocktail name
 
 ### Starter Project Setup & Cocktails API
