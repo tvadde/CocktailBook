@@ -4,7 +4,7 @@ The contents of this repository consists of starter project as well as this read
 
 ## Required tasks
 
-The end goal is to construct an app which will display a list of cocktails provided by the `CocktailsAPI` in the app's Main Screen and details for each of the cocktails in a Details Screen, which is shown whenever one of the cocktails is selected. Further description about the `CocktailsAPI`  is provided later. Please see the mocks bellow:
+The end goal is to construct an app which will display a list of cocktails provided by the `CocktailsAPI` in the app's Main Screen and details for each of the cocktails in a Details Screen, which is shown whenever one of the cocktails is selected. Further description about the `CocktailsAPI`  is provided later. Please see the mocks below:
 
 <p align="center">
     <img src="MDAssets/overview.png" width="1200" max-width="90%" alt="Design Overview" />
