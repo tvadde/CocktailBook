@@ -58,7 +58,7 @@ The project is set to have minimum deployment target iOS 13.2, this is intention
 There are two main folders (groups) which are important to notice. `CocktailsAPI` and `CocktailBook`. The CocktailBook is the folder where you will do all the development in, the actual app. Additionally the CocktailBook folder contains `Assets.xcassets` that is pre-populated with cocktails images.
 The CoctailsAPI is a collection of premade code to emulate an actual web API, a source for the list of cocktails.
 
-When running the app initially you should be able to see a simple single screen app with some scrollable text (json) which is provided by the CocktailsAPI. 
+When running the app initially you should be able to see a simple single screen app with some scrollable text (JSON) which is provided by the CocktailsAPI. 
 The API provides 2 ways of obtaining the cocktails `Data`, a function with a completion handler and a Combine publisher computed property. They both achieve the same goal, so only one should be used. Which one is used is not important, it is there to provide a choice.
 
 ```swift
@@ -78,7 +78,7 @@ let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
 
 It is important to use the code from the CocktailsAPI folder "as is", meaning you do not need to change anything in the API to achieve the required and most of the optional tasks.
 
-The `Data` which is provided from either of the api functions contains a `UTF8` encoding of a json string. The json is an array of objects, each representing a cocktail:
+The `Data` which is provided from either of the API functions contains a `UTF8` encoding of a JSON string. The JSON is an array of objects, each representing a cocktail:
 
 ```json
 [
@@ -103,7 +103,7 @@ The `Data` which is provided from either of the api functions contains a `UTF8` 
 ```
 > The snippet just shows one cocktail object with truncated texts but the API provides 13 cocktail objects in the array
 
-All the cocktail json objects have the same properties and most of them are self explanatory. The only ones I want to emphasize are the `imageName` and `type`. To avoid over-complicating the task the `imageName` property contains a name of an image that is already part app's bundle, in this case `pinacolada` is an image inside the `Assets`. The `type` property can contain only two values `alcoholic` and `non-alcoholic`.
+All the cocktail JSON objects have the same properties and most of them are self explanatory. The only ones I want to emphasize are the `imageName` and `type`. To avoid over-complicating the task the `imageName` property contains a name of an image that is already part app's bundle, in this case `pinacolada` is an image inside the `Assets`. The `type` property can contain only two values `alcoholic` and `non-alcoholic`.
 
 The `CocktailAPIError` is not important for developing the required tasks, it is there only if you choose to complete one of the optional tasks (handling errors). 
 
