@@ -133,9 +133,9 @@ let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI(withFailure: .count(3))
 ```
 By initializing the object using `withFailure: .count(3)`, all the calls to the API will fail 3 times before succeeding. The only error that the API can fail with is `CocktailsAPIError.unavailable`. When the error occurs make sure to appropriately update the UI and inform the user, with an option to somehow retry to fetch the list of cocktails.
 
-**Extract the CocktailsAPI (contents of CoctailsAPI folder / group) into a separate swift package**. The new package should still belong to the same repository as our app. Keep in mind that some things need to be changed in the CocktailsAPI files, not the behavior itself. The new package should be utilized by the app as a local swift package.
+**Extract the CocktailsAPI (contents of CoctailsAPI folder/group) into a separate swift package**. The new package should still belong to the same repository as our app. Keep in mind that some things need to be changed in the CocktailsAPI files, not the behavior itself. The new package should be utilized by the app as a local swift package.
 
-**Free to add additional features / design**. There is no clear goal for this task, it is a way to enrich the app by any means you think are interesting. Sky is the limit :)
+**Free to add additional features/design**. There is no clear goal for this task, it is a way to enrich the app by any means you think are interesting. Sky is the limit :)
 
 ## Disclaimer
 
