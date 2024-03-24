@@ -7,7 +7,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        title = "All Cocktails"
         viewModel.fetchCocktailDetails()
         viewModel.reloadView = { [weak self] in
             print("name " + (self?.viewModel.cocktailDetails?.first?.name ?? ""))
