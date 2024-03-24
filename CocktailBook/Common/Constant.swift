@@ -15,6 +15,5 @@ enum CocktailType: String, CaseIterable {
     var getTypeWithCocktail: String {
         return self.rawValue + "  Cocktails"
     }
-    
 }
 
