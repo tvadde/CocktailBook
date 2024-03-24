@@ -10,8 +10,9 @@ import UIKit
 class CocktailViewModel {
     
     private let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
-    var cocktailDetails: [CocktailModel]?
+    private var cocktailDetails: [CocktailModel]?
     
+    var filteredCocktail: [CocktailModel]?
     var reloadView: (() -> ())?
     
     func fetchCocktailDetails() {
@@ -21,7 +22,8 @@ class CocktailViewModel {
                 do {
                     let decoder = JSONDecoder()
                     self?.cocktailDetails = try decoder.decode([CocktailModel].self, from: data)
-                    self?.reloadView?()
+                    self?.cocktailDetails = self?.cocktailDetails?.sorted(by: { $0.name < $1.name })
+                    self?.filterCocktailDetails(.all)
                 } catch {
                     print("Decoder error: " + error.localizedDescription)
                 }
@@ -29,5 +31,14 @@ class CocktailViewModel {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func filterCocktailDetails(_ type: CocktailType) {
+        if type == CocktailType.all {
+            filteredCocktail = cocktailDetails
+        } else {
+            filteredCocktail = cocktailDetails?.filter { $0.type == type.rawValue.lowercased() }
+        }
+        reloadView?()
     }
 }

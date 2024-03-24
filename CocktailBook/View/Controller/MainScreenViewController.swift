@@ -58,20 +58,21 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @objc func segmentedControlValueChanged(_ segment: UISegmentedControl) {
-        guard let segmentTitle = segment.titleForSegment(at: segment.selectedSegmentIndex) else { return }
-        title = CocktailType(rawValue: segmentTitle)?.getTypeWithCocktail
+        guard let segmentTitle = segment.titleForSegment(at: segment.selectedSegmentIndex), let type = CocktailType(rawValue: segmentTitle) else { return }
+        title = type.getTypeWithCocktail
+        viewModel.filterCocktailDetails(type)
     }
     
     // Mark:- Tableview data source methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.cocktailDetails?.count ?? 0
+        return viewModel.filteredCocktail?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CocktailTableCell.reuseIdentifier, for: indexPath) as! CocktailTableCell
         cell.setupView()
-        let cocktail = viewModel.cocktailDetails?[indexPath.row]
+        let cocktail = viewModel.filteredCocktail?[indexPath.row]
         cell.setTitle = cocktail?.name
         cell.setDescription = cocktail?.shortDescription
         return cell
