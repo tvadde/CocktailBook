@@ -1,6 +1,6 @@
 import UIKit
 
-class MainScreenViewController: UIViewController {
+class MainScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let viewModel = CocktailViewModel()
     
@@ -17,27 +17,63 @@ class MainScreenViewController: UIViewController {
         return segment
     }()
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = CocktailType.all.getTypeWithCocktail
         setupView()
+        registerCell()
         viewModel.fetchCocktailDetails()
         viewModel.reloadView = { [weak self] in
-            print("name " + (self?.viewModel.cocktailDetails?.first?.name ?? ""))
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
     private func setupView() {
         view.addSubview(segment)
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
             segment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             segment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableView.topAnchor.constraint(equalToSystemSpacingBelow: segment.bottomAnchor, multiplier: 1.0),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func registerCell() {
+        tableView.register(CocktailTableCell.self, forCellReuseIdentifier: CocktailTableCell.reuseIdentifier)
     }
     
     @objc func segmentedControlValueChanged(_ segment: UISegmentedControl) {
         guard let segmentTitle = segment.titleForSegment(at: segment.selectedSegmentIndex) else { return }
         title = CocktailType(rawValue: segmentTitle)?.getTypeWithCocktail
+    }
+    
+    // Mark:- Tableview data source methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cocktailDetails?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CocktailTableCell.reuseIdentifier, for: indexPath) as! CocktailTableCell
+        cell.setupView()
+        let cocktail = viewModel.cocktailDetails?[indexPath.row]
+        cell.setTitle = cocktail?.name
+        cell.setDescription = cocktail?.shortDescription
+        return cell
     }
 }
