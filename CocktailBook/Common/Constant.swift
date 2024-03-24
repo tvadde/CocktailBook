@@ -7,8 +7,14 @@
 
 import Foundation
 
-enum CocktailType: String {
+enum CocktailType: String, CaseIterable {
     case all = "All"
     case alcoholic = "Alcoholic"
     case nonAlcoholic = "Non-Alcoholic"
+    
+    var getTypeWithCocktail: String {
+        return self.rawValue + "  Cocktails"
+    }
+    
 }
+
