@@ -2,6 +2,7 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
     
+    private let viewModel = CocktailViewModel()
     private let cocktailsAPI: CocktailsAPI = FakeCocktailsAPI()
     
     override func viewDidLoad() {
@@ -36,6 +37,11 @@ class MainScreenViewController: UIViewController {
                     }
                 }
             }
+        }
+        
+        viewModel.fetchCocktailDetails()
+        viewModel.reloadView = { [weak self] in
+            print("name " + (self?.viewModel.cocktailDetails?.first?.name ?? ""))
         }
     }
 }
