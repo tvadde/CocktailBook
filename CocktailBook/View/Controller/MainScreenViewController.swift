@@ -40,6 +40,12 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        tableView.reloadData()
+        adjustLargeTitleSize()
+    }
+    
     private func setupView() {
         view.addSubview(segment)
         view.addSubview(tableView)
