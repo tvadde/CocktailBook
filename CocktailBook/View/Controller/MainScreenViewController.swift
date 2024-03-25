@@ -60,6 +60,7 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     @objc func segmentedControlValueChanged(_ segment: UISegmentedControl) {
         guard let segmentTitle = segment.titleForSegment(at: segment.selectedSegmentIndex), let type = CocktailType(rawValue: segmentTitle) else { return }
         title = type.getTypeWithCocktail
+        adjustLargeTitleSize()
         viewModel.filterCocktailDetails(type)
     }
     
