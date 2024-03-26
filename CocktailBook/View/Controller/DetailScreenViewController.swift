@@ -63,8 +63,8 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
     }
     
     private func addFavoriteBtn() {
-        let favoriteImageName = selectedCocktail?.isFavorite == true ? "heart.fill" : "heart"
-        let favoriteImage = UIImage(systemName: favoriteImageName)
+        let favoriteImageName: ImageName = selectedCocktail?.isFavorite == true ? .heartFill : .heart
+        let favoriteImage = UIImage.getImage(favoriteImageName)
         let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favoriteButtonTapped))
         navigationItem.rightBarButtonItem = favoriteButton
     }
@@ -76,8 +76,8 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
             selectedCocktail?.isFavorite = true
         }
         
-        let favoriteImageName = selectedCocktail?.isFavorite == true ? "heart.fill" : "heart"
-        let favoriteImage = UIImage(systemName: favoriteImageName)
+        let favoriteImageName: ImageName = selectedCocktail?.isFavorite == true ? .heartFill : .heart
+        let favoriteImage = UIImage.getImage(favoriteImageName)
         navigationItem.rightBarButtonItem?.image = favoriteImage
         if let isFavorite = selectedCocktail?.isFavorite, let id = selectedCocktail?.id {
             delegate?.updateIsFavorite(isFavorite, id: id)

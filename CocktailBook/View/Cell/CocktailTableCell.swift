@@ -20,7 +20,7 @@ class CocktailTableCell: UITableViewCell {
     }()
     
     private let heartImageView: UIImageView = {
-        let heartImage = UIImage(systemName: "heart.fill")
+        let heartImage = UIImage.getImage(.heartFill)
         let image = UIImageView(image: heartImage)
         image.translatesAutoresizingMaskIntoConstraints = false
         return image

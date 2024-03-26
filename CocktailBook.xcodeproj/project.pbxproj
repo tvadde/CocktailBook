@@ -32,6 +32,9 @@
 		18CD7FCD2BB2A76600C8454E /* ColorID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FCC2BB2A76600C8454E /* ColorID.swift */; };
 		18CD7FCE2BB2A76600C8454E /* ColorID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FCC2BB2A76600C8454E /* ColorID.swift */; };
 		18CD7FCF2BB2A76600C8454E /* ColorID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FCC2BB2A76600C8454E /* ColorID.swift */; };
+		18CD7FD12BB2B79C00C8454E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FD02BB2B79C00C8454E /* UIImage+Extension.swift */; };
+		18CD7FD22BB2B79C00C8454E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FD02BB2B79C00C8454E /* UIImage+Extension.swift */; };
+		18CD7FD32BB2B79C00C8454E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD7FD02BB2B79C00C8454E /* UIImage+Extension.swift */; };
 		E8324E7A262076EB00FD2124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8324E79262076EB00FD2124 /* AppDelegate.swift */; };
 		E8324E7C262076EB00FD2124 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8324E7B262076EB00FD2124 /* SceneDelegate.swift */; };
 		E8324E80262076EE00FD2124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8324E7F262076EE00FD2124 /* Assets.xcassets */; };
@@ -72,6 +75,7 @@
 		18CD7FC02BB287D200C8454E /* CocktailDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailTableCell.swift; sourceTree = "<group>"; };
 		18CD7FC42BB288A000C8454E /* CocktailIngredientsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailIngredientsTableCell.swift; sourceTree = "<group>"; };
 		18CD7FCC2BB2A76600C8454E /* ColorID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorID.swift; sourceTree = "<group>"; };
+		18CD7FD02BB2B79C00C8454E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E8324E76262076EB00FD2124 /* CocktailBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8324E79262076EB00FD2124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8324E7B262076EB00FD2124 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				18CD7FB82BB17E0D00C8454E /* UIViewController+Extension.swift */,
+				18CD7FD02BB2B79C00C8454E /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				E8324EC726207B6100FD2124 /* CocktailsAPIError.swift in Sources */,
 				18CD7FCD2BB2A76600C8454E /* ColorID.swift in Sources */,
 				18CD7FC52BB288A000C8454E /* CocktailIngredientsTableCell.swift in Sources */,
+				18CD7FD12BB2B79C00C8454E /* UIImage+Extension.swift in Sources */,
 				18CD7F972BB019EF00C8454E /* CocktailViewModel.swift in Sources */,
 				E8324E7A262076EB00FD2124 /* AppDelegate.swift in Sources */,
 				E8324EAD2620774B00FD2124 /* MainScreenViewController.swift in Sources */,
@@ -403,6 +409,7 @@
 				18CD7F9D2BB026AC00C8454E /* CocktailModel.swift in Sources */,
 				18CD7FBA2BB17E0D00C8454E /* UIViewController+Extension.swift in Sources */,
 				18CD7FC22BB287D200C8454E /* CocktailDetailTableCell.swift in Sources */,
+				18CD7FD22BB2B79C00C8454E /* UIImage+Extension.swift in Sources */,
 				E8324E91262076EE00FD2124 /* CocktailBookTests.swift in Sources */,
 				18CD7FC62BB288A000C8454E /* CocktailIngredientsTableCell.swift in Sources */,
 			);
@@ -419,6 +426,7 @@
 				18CD7F9E2BB026AC00C8454E /* CocktailModel.swift in Sources */,
 				18CD7FBB2BB17E0D00C8454E /* UIViewController+Extension.swift in Sources */,
 				18CD7FC32BB287D200C8454E /* CocktailDetailTableCell.swift in Sources */,
+				18CD7FD32BB2B79C00C8454E /* UIImage+Extension.swift in Sources */,
 				E8324E9C262076EE00FD2124 /* CocktailBookUITests.swift in Sources */,
 				18CD7FC72BB288A000C8454E /* CocktailIngredientsTableCell.swift in Sources */,
 			);

@@ -56,7 +56,7 @@ class CocktailIngredientsTableCell: UITableViewCell {
         stackView.distribution = .fill
         ingredientStackView.addArrangedSubview(stackView)
         
-        let arrowImage = UIImage(systemName: "arrowtriangle.right.fill")
+        let arrowImage = UIImage.getImage(.rightArrowFill)
         let arrowImageView = UIImageView(image: arrowImage)
         arrowImageView.tintColor = .black
         arrowImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,6 @@ class CocktailIngredientsTableCell: UITableViewCell {
         ingredientTextLabel.translatesAutoresizingMaskIntoConstraints = false
         ingredientTextLabel.numberOfLines = 0
         ingredientTextLabel.text = ingredient
-//        ingredientTextLabel.setContentHuggingPriority(.required, for: .vertical)
         stackView.addArrangedSubview(ingredientTextLabel)
     }
     

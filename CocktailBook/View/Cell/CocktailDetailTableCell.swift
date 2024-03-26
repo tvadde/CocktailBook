@@ -22,7 +22,7 @@ class CocktailDetailTableCell: UITableViewCell {
     }()
     
     private let timeIcon: UIImageView = {
-        let timerImage = UIImage(systemName: "timer")
+        let timerImage = UIImage.getImage(.timer)
         let imageView = UIImageView(image: timerImage)
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
