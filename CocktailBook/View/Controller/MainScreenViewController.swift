@@ -29,6 +29,7 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.largeTitleDisplayMode = .never
         title = CocktailType.all.getTypeWithCocktail
         setupView()
         registerCell()
@@ -87,7 +88,9 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cocktail = viewModel.filteredCocktail?[indexPath.row]
         let detailsScreen = DetailScreenViewController()
+        detailsScreen.selectedCocktail = cocktail
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
 }
