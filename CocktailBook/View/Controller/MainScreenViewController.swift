@@ -84,4 +84,10 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
         cell.setDescription = cocktail?.shortDescription
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailsScreen = DetailScreenViewController()
+        navigationController?.pushViewController(detailsScreen, animated: true)
+    }
 }
