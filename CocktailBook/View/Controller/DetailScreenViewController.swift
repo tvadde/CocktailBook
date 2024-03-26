@@ -16,6 +16,7 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.dataSource = self
+        tableView.alwaysBounceVertical = false
         return tableView
     }()
     
@@ -45,14 +46,25 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
     // Mark:- Tableview data source methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CocktailDetailTableCell.reuseIdentifier, for: indexPath) as! CocktailDetailTableCell
-        cell.setupView()
-        cell.selectedCocktail = selectedCocktail
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CocktailDetailTableCell.reuseIdentifier, for: indexPath) as! CocktailDetailTableCell
+            cell.setupView()
+            cell.selectedCocktail = selectedCocktail
+            return cell
+        }
+        
+        if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CocktailIngredientsTableCell.reuseIdentifier, for: indexPath) as! CocktailIngredientsTableCell
+            cell.setupView()
+            cell.selectedCocktail = selectedCocktail
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
