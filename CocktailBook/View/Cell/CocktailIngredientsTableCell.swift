@@ -60,7 +60,6 @@ class CocktailIngredientsTableCell: UITableViewCell {
         let arrowImageView = UIImageView(image: arrowImage)
         arrowImageView.tintColor = .black
         arrowImageView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(arrowImageView)
         let arrowView = UIView()
         arrowView.translatesAutoresizingMaskIntoConstraints = false
         arrowView.addSubview(arrowImageView)

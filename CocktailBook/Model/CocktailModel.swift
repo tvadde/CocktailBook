@@ -17,6 +17,8 @@ struct CocktailModel: Codable {
     let imageName: String
     let ingredients: [String]
     
+    var isFavorite: Bool? = false
+    
     func timeWithMintues() -> String {
         return "\(preparationMinutes)" + " minutes"
     }

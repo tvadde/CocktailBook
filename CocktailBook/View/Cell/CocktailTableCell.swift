@@ -19,6 +19,19 @@ class CocktailTableCell: UITableViewCell {
         return label
     }()
     
+    private let heartImageView: UIImageView = {
+        let heartImage = UIImage(systemName: "heart.fill")
+        let image = UIImageView(image: heartImage)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    private let heartView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -35,16 +48,11 @@ class CocktailTableCell: UITableViewCell {
         return view
     }()
     
-    var setTitle: String? {
+    var selectedCocktail: CocktailModel? {
         didSet {
-            titleLabel.text = setTitle
-        }
-    }
-    
-    var setDescription: String? {
-        didSet {
-            descriptionLabel.text = setDescription
-            self.layoutIfNeeded()
+            if let cocktail = selectedCocktail {
+                updateView(cocktail)
+            }
         }
     }
 
@@ -65,6 +73,41 @@ class CocktailTableCell: UITableViewCell {
             contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1.0),
             contentView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
         ])
+        
+        let titleStackView = UIStackView()
+        titleStackView.translatesAutoresizingMaskIntoConstraints = false
+        titleStackView.axis = .horizontal
+        titleStackView.spacing = 8
+        titleStackView.distribution = .fill
+        titleStackView.alignment = .center
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(heartView)
+        heartView.addSubview(heartImageView)
+        NSLayoutConstraint.activate([
+            heartImageView.centerYAnchor.constraint(equalTo: heartView.centerYAnchor),
+            heartImageView.centerXAnchor.constraint(equalTo: heartView.centerXAnchor),
+            heartImageView.leadingAnchor.constraint(equalTo: heartView.leadingAnchor),
+            heartImageView.trailingAnchor.constraint(equalTo: heartView.trailingAnchor),
+            heartView.widthAnchor.constraint(equalToConstant: 20),
+        ])
+        stackView.addArrangedSubview(titleStackView)
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(separatorLine)
+    }
+    
+    private func updateView(_ cocktail: CocktailModel) {
+     
+        titleLabel.text = cocktail.name
+        descriptionLabel.text = cocktail.shortDescription
+        var color: UIColor? = .black
+        heartImageView.isHidden = true
+        if let isFavorite = cocktail.isFavorite, isFavorite {
+            color = ColorID(rawValue: cocktail.id)?.uiColor
+            heartImageView.isHidden = false
+        }
+        titleLabel.textColor = color
+        heartImageView.tintColor = color
+        layoutIfNeeded()
     }
     
     override func prepareForReuse() {

@@ -1,6 +1,6 @@
 import UIKit
 
-class MainScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DetailScreenViewControllerDelegate {
     
     private let viewModel = CocktailViewModel()
     
@@ -29,7 +29,6 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.largeTitleDisplayMode = .never
         title = CocktailType.all.getTypeWithCocktail
         setupView()
         registerCell()
@@ -80,17 +79,21 @@ class MainScreenViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CocktailTableCell.reuseIdentifier, for: indexPath) as! CocktailTableCell
         cell.setupView()
-        let cocktail = viewModel.filteredCocktail?[indexPath.row]
-        cell.setTitle = cocktail?.name
-        cell.setDescription = cocktail?.shortDescription
+        cell.selectedCocktail = viewModel.filteredCocktail?[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cocktail = viewModel.filteredCocktail?[indexPath.row]
-        let detailsScreen = DetailScreenViewController()
-        detailsScreen.selectedCocktail = cocktail
-        navigationController?.pushViewController(detailsScreen, animated: true)
+        if let cocktail = viewModel.filteredCocktail?[indexPath.row] {
+            let detailsScreen = DetailScreenViewController(selectedCocktail: cocktail, cocktailType: viewModel.cocktailType)
+            detailsScreen.delegate = self
+            navigationController?.pushViewController(detailsScreen, animated: true)
+        }
     }
+    
+    func updateIsFavorite(_ isFavorite: Bool, id: String) {
+        viewModel.updateIsFavorite(isFavorite, id: id)
+    }
+    
 }

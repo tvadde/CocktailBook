@@ -7,9 +7,26 @@
 
 import UIKit
 
-class DetailScreenViewController: UIViewController, UITableViewDataSource {
+protocol DetailScreenViewControllerDelegate: AnyObject {
+    func updateIsFavorite(_ isFavorite: Bool, id: String)
+}
 
-    var selectedCocktail: CocktailModel?
+class DetailScreenViewController: UIViewController, UITableViewDataSource {
+    
+    // Custom initializer
+    init(selectedCocktail: CocktailModel, cocktailType: CocktailType?) {
+        self.selectedCocktail = selectedCocktail
+        self.selectedCocktailType = cocktailType
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    private var selectedCocktail: CocktailModel?
+    private var selectedCocktailType: CocktailType?
+    weak var delegate: DetailScreenViewControllerDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -24,8 +41,10 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
+        title = selectedCocktailType?.getTypeWithCocktail
         setupView()
         registerCell()
+        addFavoriteBtn()
     }
     
     private func setupView() {
@@ -37,10 +56,37 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
     private func registerCell() {
         tableView.register(CocktailDetailTableCell.self, forCellReuseIdentifier: CocktailDetailTableCell.reuseIdentifier)
         tableView.register(CocktailIngredientsTableCell.self, forCellReuseIdentifier: CocktailIngredientsTableCell.reuseIdentifier)
+    }
+    
+    private func addFavoriteBtn() {
+        let favoriteImageName = selectedCocktail?.isFavorite == true ? "heart.fill" : "heart"
+        let favoriteImage = UIImage(systemName: favoriteImageName)
+        let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.rightBarButtonItem = favoriteButton
+    }
+    
+    @objc func favoriteButtonTapped() {
+        if let isFavorite = selectedCocktail?.isFavorite {
+            selectedCocktail?.isFavorite = !isFavorite
+        } else {
+            selectedCocktail?.isFavorite = true
+        }
+        
+        let favoriteImageName = selectedCocktail?.isFavorite == true ? "heart.fill" : "heart"
+        let favoriteImage = UIImage(systemName: favoriteImageName)
+        navigationItem.rightBarButtonItem?.image = favoriteImage
+        if let isFavorite = selectedCocktail?.isFavorite, let id = selectedCocktail?.id {
+            delegate?.updateIsFavorite(isFavorite, id: id)
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        tableView.reloadData()
     }
     
     // Mark:- Tableview data source methods
@@ -65,11 +111,5 @@ class DetailScreenViewController: UIViewController, UITableViewDataSource {
         }
         
         return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let detailsScreen = DetailScreenViewController()
-        navigationController?.pushViewController(detailsScreen, animated: true)
     }
 }
