@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ImageName: String {
     case heart = "heart"
@@ -16,7 +17,7 @@ enum ImageName: String {
 
 extension UIImage {
     
-    static func getImage(_ name: ImageName) ->  UIImage {
+    static func getImage(_ name: ImageName) ->  UIImage? {
         return UIImage(systemName: name.rawValue)
     }
 }
